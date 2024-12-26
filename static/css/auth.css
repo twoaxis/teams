@@ -1,0 +1,62 @@
+@import url("master.css");
+
+form {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 500px;
+    border-radius: 10px;
+    background: #fafafa;
+    overflow: hidden;
+    transition: top 0.1s;
+}
+form div#slides {
+    display: flex;
+    width: calc(500px * 2);
+    position: relative;
+    left: 0;
+    transition: left 0.5s;
+}
+form div#slides div.slide {
+    flex: 1;
+    padding: 40px;
+}
+form div#slides div.slide h1 {
+    font-weight: 100;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+form div#slides div.slide div.field {
+    width: 100%;
+    text-align: right;
+}
+form div#slides div.slide div.field label {
+    display: block;
+    color: #888;
+    margin-bottom: 5px;
+}
+form div#slides div.slide div.field input {
+    width: 100%;
+    font-size: 17px;
+    padding: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    text-align: left;
+    border-radius: 5px;
+    direction: ltr;
+}
+form div#slides div.slide button {
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+    background: #A72222;
+    color: white;
+    border: none;
+    font-size: 17px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,39 @@
+{
+  "name": "twoaxis-teams",
+  "version": "1.0.0",
+  "description": "Locally hosted task management",
+  "main": "./build/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twoaxis/teams.git"
+  },
+  "author": "TwoAxis",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/twoaxis/teams/issues"
+  },
+  "homepage": "https://github.com/twoaxis/teams#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mariadb": "^3.4.0",
+    "sequelize": "^6.37.5",
+    "bcrypt": "^5.1.1"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cookie-parser": "^1.4.8",
+    "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^22.10.8",
+    "@types/sequelize": "^4.28.20",
+    "typescript": "^5.7.3"
+  }
+}
