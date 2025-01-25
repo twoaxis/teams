@@ -1,13 +1,31 @@
 @import url("master.css");
 
 header {
-    padding: 20px 0;
-    text-align: center;
+    display: flex;
+    padding: 20px;
+    align-items: center;
     border-bottom: 1px solid lightgray;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    direction: ltr;
+}
+header div {
+    flex: 1;
+}
+header div {
+    text-align: center;
 }
 header div img {
     width: 200px;
+}
+header div:nth-of-type(3) {
+    display: flex;
+    justify-content: flex-start;
+}
+header div:nth-of-type(3) button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #A72222;
 }
 section#options {
     width: 900px;

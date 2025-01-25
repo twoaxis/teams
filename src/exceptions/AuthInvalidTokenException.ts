@@ -1,0 +1,1 @@
+class AuthInvalidTokenException extends Error {}

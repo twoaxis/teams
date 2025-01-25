@@ -50,6 +50,21 @@ APIAuthController.post("/login", async (req, res) => {
 			res.status(401).send();
 		}
 	}
+});
+
+APIAuthController.post("/logout", async (req, res) => {
+	const { token } = req.cookies;
+
+	const authService = new AuthService();
+
+	try {
+		await authService.logOut(token);
+
+		res.clearCookie("token").send();
+	}
+	catch (error) {
+		res.status(500).send();
+	}
 })
 
 export default APIAuthController;

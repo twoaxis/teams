@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 import AuthInvalidCredentialsException from "../exceptions/AuthInvalidCredentialsException";
 import Permissions from "../enums/Permissions";
 import UserService from "./UserService";
+import RevokedToken from "../models/RevokedToken";
 
 class AuthService {
 	async signUp(username: string, password: string): Promise<string> {
@@ -44,6 +45,11 @@ class AuthService {
 		return this.generateToken(user["id"], username, permissions);
 
 	}
+	async logOut(token: string) {
+		await RevokedToken.create({
+			token
+		});
+	}
 	private generateToken(id: string, username: string, permissions: Permissions[] = []): string {
 		return jwt.sign({
 			id,
@@ -56,6 +62,14 @@ class AuthService {
 		});
 	}
 	async validateToken(token: string) {
+
+		const revokedToken = await RevokedToken.findOne({
+			where: {
+				token
+			}
+		});
+		if (revokedToken) throw new AuthInvalidTokenException();
+
 		return jwt.verify(token, process.env.JWT_SECRET);
 	}
 }
