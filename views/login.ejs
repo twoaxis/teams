@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="ar">
-<head>
-    <link rel="stylesheet" href="/static/css/auth.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FCI Tanta</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-</head>
-<body>
-<form>
-    <div id="slides">
-        <div class="slide">
-            <h1>تسجيل الدخول لـ FCI Tanta</h1>
-            <div class="field">
-                <label for="email">البريد الإلكتروني:</label>
-                <input id="email" type="email" placeholder="aida.nasr@ics.tanta.edu.eg" name="email">
+    <head>
+        <link rel="stylesheet" href="/static/css/auth.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FCI Tanta</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <form>
+            <div id="slides">
+                <div class="slide">
+                    <h1>تسجيل الدخول لـ FCI Tanta</h1>
+                    <div class="field">
+                        <label for="username">اسم المستخدم</label>
+                        <input id="username" type="text" placeholder="aidanasr" name="username">
+                    </div>
+                    <button type="button" id="username-btn">التالي</button>
+                </div>
+                <div class="slide">
+                    <h1>تسجيل الدخول لـ FCI Tanta</h1>
+                    <div class="field">
+                        <label for="password">كلمة المرور:</label>
+                        <input id="password" type="password" placeholder="••••••••••••" name="password">
+                    </div>
+                    <button type="submit">دخول</button>
+                </div>
             </div>
-            <button type="button" id="email-btn">التالي</button>
-        </div>
-        <div class="slide">
-            <h1>تسجيل الدخول لـ FCI Tanta</h1>
-            <div class="field">
-                <label for="password">كلمة المرور:</label>
-                <input id="password" type="password" placeholder="••••••••••••" name="password">
-            </div>
-            <button type="submit">دخول</button>
-        </div>
-    </div>
-</form>
-<script src="/static/js/login.js"></script>
-</body>
+        </form>
+        <script src="/static/js/login.js"></script>
+    </body>
 </html>

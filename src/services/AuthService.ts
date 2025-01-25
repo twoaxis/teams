@@ -55,6 +55,9 @@ class AuthService {
 			expiresIn: "12h"
 		});
 	}
+	async validateToken(token: string) {
+		return jwt.verify(token, process.env.JWT_SECRET);
+	}
 }
 
 export default AuthService;

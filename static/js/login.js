@@ -1,15 +1,14 @@
-document.getElementById("email-btn").addEventListener("click", () => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+document.getElementById("username-btn").addEventListener("click", () => {
 
-    if(!emailRegex.test(document.getElementById("email").value)) {
-        alert("Please enter a valid email"); // TODO: Proper error handling
+    if(document.getElementById("username").value === "") {
+        alert("Please enter a username"); // TODO: Proper error handling
     }
     else document.querySelector("form div#slides").style.left = "100%";
 });
-document.querySelector("form").addEventListener("submit", (e) => {
+document.querySelector("form").addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const email = document.getElementById("email");
+    const username = document.getElementById("username");
     const password = document.getElementById("password");
 
     if(password.value === "") {
@@ -17,19 +16,33 @@ document.querySelector("form").addEventListener("submit", (e) => {
     }
     else {
 
-        email.disabled = true;
+        username.disabled = true;
         password.disabled = true;
 
-        // Send request here.
+        try {
+            await axios({
+                method: "POST",
+                url: "/api/auth/login",
+                data: {
+                    username: username.value,
+                    password: password.value
+                }
+            });
+            console.log("Successfully logged in");
 
-        /*
-            If invalid email or password:
+            window.location.reload();
+        }
+        catch(err) {
 
-            document.querySelector("form div#slides").style.left = "0%";
-            email.disabled = false;
+            username.disabled = false;
             password.disabled = false;
 
-         */
+            document.querySelector("form div#slides").style.left = "0%";
+
+            if(err.status === 401) {
+                alert("Invalid username or password");
+            }
+        }
     }
 
 })
