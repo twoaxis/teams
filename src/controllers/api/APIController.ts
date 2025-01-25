@@ -1,8 +1,10 @@
 import { Router } from "express";
-import APIAuthController from "./APIAuthController";
+import router from "./Router";
+import APIUsersController from "./APIUsersController";
 
 const APIController = Router();
 
-APIController.use("/auth", APIAuthController);
+APIController.use("/auth", router);
+APIController.use("/users", APIUsersController);
 
 export default APIController;

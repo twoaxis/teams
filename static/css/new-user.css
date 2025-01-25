@@ -1,0 +1,78 @@
+@import url("master.css");
+
+header {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    direction: ltr;
+}
+header div{
+    flex: 1;
+}
+header div {
+    text-align: center;
+}
+header div img {
+    width: 200px;
+}
+header div:nth-of-type(3) {
+    display: flex;
+    justify-content: flex-start;
+}
+header div:nth-of-type(3) button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #A72222;
+}
+form {
+    width: 600px;
+    margin: 50px auto;
+}
+form h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+form div.text-input {
+    width: 100%;
+}
+form div.text-input + div.text-input {
+    margin-top: 20px;
+}
+form div.text-input label {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 15px;
+    color: gray;
+}
+form div.text-input input {
+    width: 100%;
+    font-size: 17px;
+    padding: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+form div.option-input {
+    direction: ltr;
+    text-align: right;
+    margin: 20px 0;
+}
+form div#password-div {
+    display: none;
+}
+form button {
+    width: 100%;
+    display: block;
+    margin-top: 40px;
+    background: #A72222;
+    color: white;
+    border: none;
+    font-size: 17px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+}

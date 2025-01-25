@@ -18,5 +18,14 @@ router.get("/", AuthMiddleware, async (req, res) => {
 		res.redirect("/dashboard");
 	}
 });
+router.get("/new", AuthMiddleware, async (req, res) => {
+	if(req["permissions"].includes(Permissions.MANAGE_USERS)) {
+
+		res.render("new-user");
+	}
+	else {
+		res.redirect("/dashboard");
+	}
+});
 
 export default router;

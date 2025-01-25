@@ -1,32 +1,10 @@
 import { Router } from "express";
 import AuthService from "../../services/AuthService";
-import UserAlreadyExistsException from "../../exceptions/UserAlreadyExistsException";
 import AuthInvalidCredentialsException from "../../exceptions/AuthInvalidCredentialsException";
 
-const APIAuthController = Router();
+const router = Router();
 
-// TODO: Remove later
-APIAuthController.post("/signup", async (req, res) => {
-	const { username, password } = req.body;
-
-	const authService = new AuthService();
-	try {
-		const token = await authService.signUp(username, password);
-
-		res.json(token);
-	}
-	catch (error) {
-		if(error instanceof UserAlreadyExistsException) {
-			res.status(409).json();
-		}
-		else {
-			console.log(error);
-			res.status(500).json({ error: "Something went wrong" });
-		}
-	}
-});
-
-APIAuthController.post("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
 	const { username, password } = req.body;
 
 	const authService = new AuthService();
@@ -52,7 +30,7 @@ APIAuthController.post("/login", async (req, res) => {
 	}
 });
 
-APIAuthController.post("/logout", async (req, res) => {
+router.post("/logout", async (req, res) => {
 	const { token } = req.cookies;
 
 	const authService = new AuthService();
@@ -67,4 +45,4 @@ APIAuthController.post("/logout", async (req, res) => {
 	}
 })
 
-export default APIAuthController;
+export default router;

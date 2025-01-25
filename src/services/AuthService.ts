@@ -8,8 +8,8 @@ import UserService from "./UserService";
 import RevokedToken from "../models/RevokedToken";
 
 class AuthService {
-	async signUp(username: string, password: string): Promise<string> {
-		let user = await User.findOne({
+	async createUser(name: string, username: string, password: string): Promise<void> {
+		const user = await User.findOne({
 			where: {
 				username
 			}
@@ -18,13 +18,11 @@ class AuthService {
 
 		const hashedPassword = await bcrypt.hash(password, 10);
 
-		user = await User.create({
+		await User.create({
+			name,
 			username,
 			password: hashedPassword,
 		});
-
-		return this.generateToken(user["id"], username);
-
 	}
 	async signIn(username: string, password: string): Promise<string> {
 		let user = await User.findOne({

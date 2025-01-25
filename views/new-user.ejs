@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar">
+    <head>
+        <link rel="stylesheet" href="/static/css/new-user.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FCI Tanta</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <header>
+            <div></div>
+            <div>
+                <img src="/static/images/logo.png" alt="TwoAxis">
+            </div>
+            <div>
+                <button id="logout"><i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
+        </header>
+        <form>
+            <h1>مستخدم جديد</h1>
+            <div class="text-input">
+                <label for="name">الاسم:</label>
+                <input type="text" placeholder="الاسم" id="name">
+            </div>
+            <div class="text-input">
+                <label for="username">اسم المستخدم:</label>
+                <input type="text" placeholder="اسم المستخدم" id="username">
+            </div>
+            <div class="option-input">
+                <label for="autogenerate">إنشاء كلمة مرور جديدة عشوائية</label>
+                <input type="radio" id="autogenerate" name="password-option" value="autogenerate" checked="checked">
+                <br>
+                <label for="manual">ادخال كلمة مرور يدوياً</label>
+                <input type="radio" id="manual" name="password-option" value="manual">
+            </div>
+            <div class="text-input" id="password-div">
+                <label for="password">كلمة المرور:</label>
+                <input type="password" placeholder="كلمه السر" id="password">
+            </div>
+            <button>اضافة مستخدم جديد</button>
+        </form>
+        <script src="/static/js/createUser.js"></script>
+    </body>
+</html>
