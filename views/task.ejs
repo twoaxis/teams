@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar">
+    <head>
+        <link rel="stylesheet" href="/static/css/task.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FCI Tanta</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <header>
+            <div></div>
+            <div>
+                <img src="/static/images/logo.png" alt="TwoAxis">
+            </div>
+            <div>
+                <button id="logout"><i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
+        </header>
+        <section id="task">
+            <h1>بيانات التاسك</h1>
+            <div class="row">
+                <div class="block">
+                    <h2>العنوان</h2>
+                    <p><%= task.title %></p>
+                </div>
+                <div class="block">
+                    <h2>الوصف</h2>
+                    <p><%= task.description ? task.description : "لا يوجد وصف" %></p>
+                </div>
+                <div class="block">
+                    <h2>تاريخ</h2>
+                    <p><%= task.createdAt.toLocaleDateString() %></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="block">
+                    <h2>المدير</h2>
+                    <p><%= task.manager.name %></p>
+                </div>
+                <div class="block">
+                    <h2>الحاله</h2>
+                    <% if(task.status === "ready") { %>
+                        <p>جاهز</p>
+                    <% } else if(task.status === "cancelled") { %>
+                        <p>تم الإلغاء</p>
+                    <% } else if(task.status === "in_progress") { %>
+                        <p>يتم العمل</p>
+                    <% } else if(task.status === "done") { %>
+                        <p>تم الإنتهاء</p>
+                    <% } %>
+                </div>
+
+                <div class="block">
+                </div>
+            </div>
+            <div class="row">
+                <% if(task.status !== "cancelled" && task.status !== "done") { %>
+                    <button id="cancel">إلغاء</button>
+                <% } %>
+                <% if(task.status === "ready") { %>
+                    <button id="in_progress">يتم العمل</button>
+                <% } else if(task.status === "in_progress") { %>
+                    <button id="done">تم الانتهاء</button>
+                <% } %>
+            </div>
+        </section>
+        <script>
+            const taskId = "<%= task.id %>";
+            const taskStatus = "<%= task.status %>";
+        </script>
+        <script src="/static/js/logout.js"></script>
+        <script src="/static/js/updateTask.js"></script>
+    </body>
+</html>

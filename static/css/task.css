@@ -1,0 +1,76 @@
+@import url("master.css");
+
+header {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    direction: ltr;
+}
+header div{
+    flex: 1;
+}
+header div {
+    text-align: center;
+}
+header div img {
+    width: 200px;
+}
+header div:nth-of-type(3) {
+    display: flex;
+    justify-content: flex-start;
+}
+header div:nth-of-type(3) button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #A72222;
+}
+section#task {
+    width: 800px;
+    margin: 40px auto;
+}
+section#task h1 {
+    font-size: 50px;
+    margin-bottom: 40px;
+}
+section#task div.row {
+    display: flex;
+}
+section#task div.row + div.row {
+    margin-top: 20px;
+}
+
+section#task div.row div.block {
+    flex: 1;
+}
+section#task div.row div.block h2 {
+    font-size: 20px;
+}
+section#task div.row div.block p {
+    font-size: 18px;
+}
+section#task div.row button {
+    flex: 1;
+    padding: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+section#task div.row button + button {
+    margin-right: 20px;
+}
+section#task div.row button#cancel {
+    background: #A72222;
+}
+section#task div.row button#in_progress {
+    background: #ffaf00;
+}
+section#task div.row button#done {
+    background: #009f0c;
+}
