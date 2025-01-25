@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar">
+    <head>
+        <link rel="stylesheet" href="/static/css/manage-user.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FCI Tanta</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <header>
+            <div></div>
+            <div>
+                <img src="/static/images/logo.png" alt="TwoAxis">
+            </div>
+            <div>
+                <button id="logout"><i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
+        </header>
+        <section id="user">
+            <h1>بيانات المستخدم</h1>
+            <div class="row">
+                <div class="block">
+                    <h2>الأسم</h2>
+                    <p><%= user.name %></p>
+                </div>
+                <div class="block">
+                    <h2>اسم المستخدم</h2>
+                    <p><%= user.username %></p>
+                </div>
+                <div class="block">
+                    <h2>تاريخ التسجيل</h2>
+                    <p><%= user.createdAt.toLocaleDateString() %></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="block">
+                    <h2>المدير</h2>
+                    <% if(user.manager) { %>
+                    <a href="/manage-users/<%= user.manager.id %>"><%= user.manager.name %></a>
+                    <% } else { %>
+                        <p>لا يوجد</p>
+                    <% } %>
+                </div>
+            </div>
+        </section>
+        <script src="/static/js/logout.js"></script>
+    </body>
+</html>
