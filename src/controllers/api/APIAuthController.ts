@@ -38,7 +38,11 @@ APIAuthController.post("/login", async (req, res) => {
 		else {
 
 			const token = await authService.signIn(username, password);
-			res.json(token);
+			res.cookie("token", token, {
+				maxAge: 12 * 60 * 60 * 1000,
+				httpOnly: true,
+				sameSite: true
+			}).send();
 		}
 	}
 	catch(error) {
