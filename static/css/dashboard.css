@@ -1,0 +1,36 @@
+@import url("master.css");
+
+header {
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+header div img {
+    width: 200px;
+}
+section#options {
+    width: 900px;
+    margin: 50px auto;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, minmax(300px, 1fr));
+}
+section#options a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    border: 1px solid #afacac;
+    border-radius: 15px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+section#options a h1 {
+    font-size: 60px;
+    margin-bottom: 30px;
+    color: #A72222;
+}
