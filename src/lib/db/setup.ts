@@ -9,7 +9,7 @@ const setup = async () => {
 	Permission.belongsTo(User, { foreignKey: "userId" });
 
 	if(process.env.NODE_ENV !== 'production') {
-		await sequelize.sync();
+		await sequelize.sync({ alter: true });
 	}
 }
 

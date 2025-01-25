@@ -1,0 +1,98 @@
+@import url("master.css");
+
+
+header {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    direction: ltr;
+}
+header div {
+    flex: 1;
+}
+header div {
+    text-align: center;
+}
+header div img {
+    width: 200px;
+}
+header div:nth-of-type(3) {
+    display: flex;
+    justify-content: flex-start;
+}
+header div:nth-of-type(3) button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #A72222;
+}
+section#users {
+    width: 900px;
+    margin: 50px auto;
+}
+section#users div#header {
+    display: flex;
+    align-items: center;
+}
+section#users div#header div {
+    flex: 1;
+}
+section#users div#header div:nth-of-type(1) h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+section#users div#header div:nth-of-type(2) {
+    text-align: left;
+}
+section#users div#header div:nth-of-type(2) button {
+    background: none;
+    border: none;
+    font-size: 15px;
+    background: green;
+    cursor: pointer;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+section#users input {
+    width: 100%;
+    font-size: 17px;
+    padding: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+section#users div.line {
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 20px 0;
+}
+section#users div#content a.user {
+    display: flex;
+    text-decoration: none;
+    color: black;
+}
+section#users div#content a.user + a.user {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+}
+section#users div#content a.user div {
+    flex: 1;
+}
+section#users div#content a.user div:nth-of-type(2) {
+    text-align: center;
+}
+section#users div#content a.user div:nth-of-type(3) {
+    text-align: left;
+}
+section#users div#content a.user div:nth-of-type(3) button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #1496cc;
+    cursor: pointer;
+}

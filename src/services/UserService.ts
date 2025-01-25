@@ -1,4 +1,5 @@
 import Permission from "../models/Permission";
+import User from "../models/User";
 
 class UserService {
 	async getUserPermissions(id: string) {
@@ -9,6 +10,15 @@ class UserService {
 		});
 
 		return permissions.map((permission) => permission["name"]);
+	}
+	async getAllUsers() {
+		return await User.findAll({
+			attributes: [
+				"id",
+				"name",
+				"username"
+			]
+		});
 	}
 }
 
