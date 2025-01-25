@@ -1,0 +1,71 @@
+@import url("master.css");
+
+
+header {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    direction: ltr;
+}
+header div {
+    flex: 1;
+}
+header div {
+    text-align: center;
+}
+header div img {
+    width: 200px;
+}
+header div:nth-of-type(3) {
+    display: flex;
+    justify-content: flex-start;
+}
+header div:nth-of-type(3) button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #A72222;
+}
+
+section#tasks {
+    width: 900px;
+    margin: 50px auto;
+}
+section#tasks h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+section#tasks div.line {
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 20px 0;
+}
+section#tasks div#content a.task {
+    display: flex;
+    text-decoration: none;
+    color: black;
+}
+section#tasks div#content a.task + a.task {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+}
+section#tasks div#content a.task div {
+    flex: 1;
+}
+section#tasks div#content a.task div:nth-of-type(2) {
+    text-align: center;
+}
+section#tasks div#content a.task div:nth-of-type(3) {
+    text-align: left;
+}
+section#tasks div#content a.task div:nth-of-type(3) button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #1496cc;
+    cursor: pointer;
+}

@@ -26,11 +26,15 @@
                 </a>
             <% } %>
             <% if(permissions.includes("manage_tasks")) { %>
-                <a href="/tasks">
-                    <h1><i class="fa-solid fa-list-check"></i></h1>
+                <a href="/manage-tasks">
+                    <h1><i class="fa-solid fa-table-list"></i></h1>
                     <p>ادارة التاسكات</p>
                 </a>
             <% } %>
+            <a href="/tasks">
+                <h1><i class="fa-solid fa-list-check"></i></h1>
+                <p>تاسكاتي</p>
+            </a>
         </section>
         <script src="/static/js/logout.js"></script>
     </body>

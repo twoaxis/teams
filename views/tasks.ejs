@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar">
+    <head>
+        <link rel="stylesheet" href="/static/css/tasks.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FCI Tanta</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <header>
+            <div></div>
+            <div>
+                <img src="/static/images/logo.png" alt="TwoAxis">
+            </div>
+            <div>
+                <button id="logout"><i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
+        </header>
+        <section id="tasks">
+            <h1>تاسكاتي</h1>
+            <div class="line"></div>
+            <div id="content">
+                <% tasks.forEach((task) => { %>
+                    <a class="task" href="/tasks/<%= task.id %>">
+                        <div>
+                            <p><%= task.title %></p>
+                        </div>
+                        <div>
+                            <% if(task.status === "ready") { %>
+                            <p>جاهز</p>
+                            <% } else if(task === "cancelled") { %>
+                            <p>تم الإلغاء</p>
+                            <% } else if(task === "in_progress") { %>
+                            <p>يتم العمل</p>
+                            <% } else if(task === "done") { %>
+                            <p>تم الإنتهاء</p>
+                            <% } %>
+                        </div>
+                        <div>
+                            <button><i class="fa-solid fa-arrow-left"></i></button>
+                        </div>
+                    </a>
+                <% }); %>
+            </div>
+        </section>
+        <script src="/static/js/logout.js"></script>
+    </body>
+</html>
