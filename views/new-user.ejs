@@ -28,6 +28,16 @@
                 <label for="username">اسم المستخدم:</label>
                 <input type="text" placeholder="اسم المستخدم" id="username">
             </div>
+            <div class="text-input">
+
+                <label for="username">المدير:</label>
+                <select id="reportingTo">
+                    <option value="">لا احد</option>
+                    <% users.forEach((user) => {%>
+                        <option value="<%= user.id %>"><%= user.name %></option>
+                    <% }); %>
+                </select>
+            </div>
             <div class="option-input">
                 <label for="autogenerate">إنشاء كلمة مرور جديدة عشوائية</label>
                 <input type="radio" id="autogenerate" name="password-option" value="autogenerate" checked="checked">

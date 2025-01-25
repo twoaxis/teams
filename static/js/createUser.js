@@ -12,6 +12,7 @@ document.querySelector("form").addEventListener("submit", async (e) => {
     const name = document.getElementById("name");
     const username = document.getElementById("username");
     const password = document.getElementById("password");
+    const reportingTo = document.getElementById("reportingTo");
 
     if(name.value === "" || username.value === "") {
         alert("Please fill all fields");
@@ -24,7 +25,8 @@ document.querySelector("form").addEventListener("submit", async (e) => {
                 data: {
                     name: name.value,
                     username: username.value,
-                    password: password.value === 0 ? null : password.value
+                    password: password.value === 0 ? null : password.value,
+                    reportingTo: reportingTo.value === "" ? null : parseInt(reportingTo.value)
                 }
             });
 

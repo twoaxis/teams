@@ -47,7 +47,7 @@ form div.text-input label {
     font-size: 15px;
     color: gray;
 }
-form div.text-input input {
+form div.text-input input, form div.text-input select {
     width: 100%;
     font-size: 17px;
     padding: 10px;

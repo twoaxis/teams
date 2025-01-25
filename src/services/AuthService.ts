@@ -8,7 +8,7 @@ import UserService from "./UserService";
 import RevokedToken from "../models/RevokedToken";
 
 class AuthService {
-	async createUser(name: string, username: string, password: string): Promise<void> {
+	async createUser(name: string, username: string, password: string, reportingTo: number): Promise<void> {
 		const user = await User.findOne({
 			where: {
 				username
@@ -22,6 +22,7 @@ class AuthService {
 			name,
 			username,
 			password: hashedPassword,
+			reportingTo,
 		});
 	}
 	async signIn(username: string, password: string): Promise<string> {

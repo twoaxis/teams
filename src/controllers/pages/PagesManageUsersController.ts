@@ -20,8 +20,10 @@ router.get("/", AuthMiddleware, async (req, res) => {
 });
 router.get("/new", AuthMiddleware, async (req, res) => {
 	if(req["permissions"].includes(Permissions.MANAGE_USERS)) {
+		const userService = new UserService();
+		const users = await userService.getAllUsers();
 
-		res.render("new-user");
+		res.render("new-user", { users });
 	}
 	else {
 		res.redirect("/dashboard");

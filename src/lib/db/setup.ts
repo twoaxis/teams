@@ -8,6 +8,9 @@ const setup = async () => {
 	User.hasMany(Permission, { foreignKey: "userId" });
 	Permission.belongsTo(User, { foreignKey: "userId" });
 
+	User.hasMany(User, { foreignKey: "reportingTo" });
+	User.belongsTo(User, { foreignKey: "reportingTo" });
+
 	if(process.env.NODE_ENV !== 'production') {
 		await sequelize.sync({ alter: true });
 	}
