@@ -28,6 +28,15 @@ class TaskService {
 			}
 		});
 	}
+	async createTask(title: string, description: string, userId: number, assignedTo: number) {
+		await Task.create({
+			title,
+			description,
+			status: "ready",
+			userId,
+			assignedTo
+		});
+	}
 	async updateTaskStatus(userId: number, taskId: number, taskStatus: TaskStatus) {
 		await Task.update({
 			status: taskStatus

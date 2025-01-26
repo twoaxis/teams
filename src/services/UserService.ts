@@ -21,6 +21,18 @@ class UserService {
 			]
 		});
 	}
+	async getAllUsersUnderManager(id: number) {
+		return await User.findAll({
+			attributes: [
+				"id",
+				"name",
+				"username"
+			],
+			where: {
+				reportingTo: id
+			}
+		});
+	}
 	async getUsersReportingToUser(id: string) {
 		return await User.findAll({
 			attributes: [

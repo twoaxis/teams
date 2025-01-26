@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar">
+    <head>
+        <link rel="stylesheet" href="/static/css/new-user.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FCI Tanta</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <header>
+            <div></div>
+            <div>
+                <img src="/static/images/logo.png" alt="TwoAxis">
+            </div>
+            <div>
+                <button id="logout"><i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
+        </header>
+        <form>
+            <h1>تاسك جديد: <%= user.name %></h1>
+            <div class="text-input">
+                <label for="title">العنوان:</label>
+                <input type="text" placeholder="العنوان" id="title">
+            </div>
+            <div class="text-input">
+                <label for="description">الوصف:</label>
+                <input type="text" placeholder="الوصف" id="description">
+            </div>
+            <button>اضافة تاسك جديد</button>
+        </form>
+        <script>
+            const userId = "<%= user.id %>";
+        </script>
+        <script src="/static/js/createTask.js"></script>
+        <script src="/static/js/logout.js"></script>
+    </body>
+</html>
