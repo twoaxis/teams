@@ -39,7 +39,7 @@ section#users div#header {
 section#users div#header div {
     flex: 1;
 }
-section#users div#header div:nth-of-type(1) h1 {
+section#users h1 {
     font-size: 50px;
     margin-bottom: 20px;
 }

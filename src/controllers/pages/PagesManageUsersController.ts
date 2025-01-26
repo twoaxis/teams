@@ -36,10 +36,9 @@ router.get("/:id", AuthMiddleware, async (req, res) => {
 	if(req["permissions"].includes(Permissions.MANAGE_USERS)) {
 		try {
 			const userService = new UserService();
-			const user = await userService.getUser(id);
+			const user = await userService.getUser(parseInt(id));
 
 			res.render("manage-user", { user });
-			console.log(user);
 		}
 		catch (err) {
 			if(err instanceof UserNotFoundException) {

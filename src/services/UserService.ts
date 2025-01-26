@@ -21,7 +21,19 @@ class UserService {
 			]
 		});
 	}
-	async getUser(id: string) {
+	async getUsersReportingToUser(id: string) {
+		return await User.findAll({
+			attributes: [
+				"id",
+				"name",
+				"username"
+			],
+			where: {
+				reportingTo: id
+			}
+		});
+	}
+	async getUser(id: number) {
 		const user = await User.findOne({
 			attributes: [
 				"id",

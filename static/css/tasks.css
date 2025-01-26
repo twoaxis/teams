@@ -37,6 +37,27 @@ section#tasks h1 {
     font-size: 50px;
     margin-bottom: 20px;
 }
+section#tasks div#header {
+    display: flex;
+    align-items: center;
+}
+section#tasks div#header div {
+    flex: 1;
+}
+section#tasks div#header div:nth-of-type(2) {
+    text-align: left;
+}
+section#tasks div#header div:nth-of-type(2) a {
+    background: none;
+    border: none;
+    font-size: 15px;
+    background: green;
+    cursor: pointer;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
 section#tasks div.line {
     height: 1px;
     width: 100%;
