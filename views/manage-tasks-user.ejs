@@ -37,11 +37,11 @@
                         <div>
                             <% if(task.status === "ready") { %>
                                 <p>جاهز</p>
-                            <% } else if(task === "cancelled") { %>
+                            <% } else if(task.status === "cancelled") { %>
                                 <p>تم الإلغاء</p>
-                            <% } else if(task === "in_progress") { %>
+                            <% } else if(task.status === "in_progress") { %>
                                 <p>يتم العمل</p>
-                            <% } else if(task === "done") { %>
+                            <% } else if(task.status === "done") { %>
                                 <p>تم الإنتهاء</p>
                             <% } %>
                         </div>
