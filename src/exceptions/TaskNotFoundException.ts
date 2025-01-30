@@ -1,0 +1,1 @@
+class TaskNotFoundException extends Error {}

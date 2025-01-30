@@ -1,6 +1,8 @@
 import Task from "../models/Task";
 import User from "../models/User";
 import TaskStatus from "../enums/TaskStatus";
+import task from "../models/Task";
+import { Op } from "sequelize";
 
 class TaskService {
 	async getTasksAssignedToUser(userId: number) {
@@ -38,12 +40,34 @@ class TaskService {
 		});
 	}
 	async updateTaskStatus(userId: number, taskId: number, taskStatus: TaskStatus) {
+		const task = await Task.findOne({
+			where: {
+				[Op.and]: [
+					{ id: taskId },
+					{
+						[Op.or]: [
+							{ userId: userId },
+							{ assignedTo: userId }
+						]
+					}
+				]
+			}
+		});
+
+		if (!task) throw new TaskNotFoundException();
 		await Task.update({
 			status: taskStatus
 		}, {
 			where: {
-				id: taskId,
-				assignedTo: userId,
+				[Op.and]: [
+					{ id: taskId },
+					{
+						[Op.or]: [
+							{ userId: userId },
+							{ assignedTo: userId }
+						]
+					}
+				]
 			}
 		});
 	}

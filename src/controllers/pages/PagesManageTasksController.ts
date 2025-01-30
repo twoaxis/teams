@@ -53,5 +53,18 @@ router.get("/:id/new", AuthMiddleware, async (req, res) => {
 		res.redirect("/dashboard");
 	}
 });
+router.get("/:id/:taskId", AuthMiddleware, async (req, res) => {
+	const { id, taskId } = req.params;
+
+	if(req["permissions"].includes(Permissions.MANAGE_USERS)) {
+		const taskService = new TaskService();
+		const task = await taskService.getUserTaskById(parseInt(id), parseInt(taskId));
+
+		res.render("task", { task });
+	}
+	else {
+		res.redirect("/dashboard");
+	}
+});
 
 export default router;

@@ -11,8 +11,18 @@ router.post("/:id", AuthMiddleware, async (req, res) => {
 
 	const taskService = new TaskService();
 
-	await taskService.updateTaskStatus(req["uid"], parseInt(id), status);
-	res.status(200).send();
+	try {
+		await taskService.updateTaskStatus(req["uid"], parseInt(id), status);
+		res.status(200).send();
+	}
+	catch (error) {
+		if(error instanceof TaskNotFoundException) {
+			res.status(404).send();
+		}
+		else {
+			res.status(500).send();
+		}
+	}
 });
 router.put("/:assignedTo", AuthMiddleware, async (req, res) => {
 	const { assignedTo } = req.params;
