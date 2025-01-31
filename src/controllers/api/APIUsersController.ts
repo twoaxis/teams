@@ -44,4 +44,50 @@ router.put("/", AuthMiddleware, async (req, res) => {
 		}
 	}
 });
+router.put("/:id", AuthMiddleware, async (req, res) => {
+	const { permission } = req.body;
+	const { id } = req.params;
+
+	const authService = new AuthService();
+	try {
+
+		if (!req["permissions"].includes(Permissions.MANAGE_USERS)) {
+			res.status(401).send();
+		}
+		else if(!permission) {
+			res.status(400).send();
+		}
+		else {
+			await authService.addPermission(parseInt(id), permission);
+
+			res.status(200).send();
+		}
+	}
+	catch(error) {
+		res.status(500).json({ error: "Something went wrong" });
+	}
+});
+router.delete("/:id", AuthMiddleware, async (req, res) => {
+	const { permission } = req.body;
+	const { id } = req.params;
+
+	const authService = new AuthService();
+	try {
+
+		if (!req["permissions"].includes(Permissions.MANAGE_USERS)) {
+			res.status(401).send();
+		}
+		else if(!permission) {
+			res.status(400).send();
+		}
+		else {
+			await authService.removePermission(parseInt(id), permission);
+
+			res.status(200).send();
+		}
+	}
+	catch(error) {
+		res.status(500).json({ error: "Something went wrong" });
+	}
+});
 export default router;

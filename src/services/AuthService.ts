@@ -6,6 +6,7 @@ import AuthInvalidCredentialsException from "../exceptions/AuthInvalidCredential
 import Permissions from "../enums/Permissions";
 import UserService from "./UserService";
 import RevokedToken from "../models/RevokedToken";
+import Permission from "../models/Permission";
 
 class AuthService {
 	async createUser(name: string, username: string, password: string, reportingTo: number): Promise<void> {
@@ -70,6 +71,20 @@ class AuthService {
 		if (revokedToken) throw new AuthInvalidTokenException();
 
 		return jwt.verify(token, process.env.JWT_SECRET);
+	}
+	async addPermission(userId: number, permission: Permissions) {
+		await Permission.create({
+			userId,
+			name: permission
+		});
+	}
+	async removePermission(userId: number, permission: Permissions) {
+		await Permission.destroy({
+			where: {
+				userId,
+				name: permission
+			}
+		});
 	}
 }
 

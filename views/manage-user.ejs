@@ -45,6 +45,30 @@
                 </div>
             </div>
         </section>
+        <section id="permissions">
+            <h1>صلاحيات المستخدم</h1>
+            <div>
+                <label for="manage_users">ادارة المستخدمين</label>
+                <% if(user.permissions.includes("manage_users")) { %>
+                    <input type="checkbox" id="manage_users" name="manage_users" checked>
+                <% } else { %>
+                    <input type="checkbox" id="manage_users" name="manage_users">
+                <% } %>
+            </div>
+            <div>
+                <label for="manage_tasks">ادارة المهام</label>
+
+                <% if(user.permissions.includes("manage_tasks")) { %>
+                    <input type="checkbox" id="manage_tasks" name="manage_tasks" checked>
+                <% } else { %>
+                    <input type="checkbox" id="manage_tasks" name="manage_tasks">
+                <% } %>
+            </div>
+        </section>
+        <script>
+            const userId = "<%= user.id %>";
+        </script>
         <script src="/static/js/logout.js"></script>
+        <script src="/static/js/updatePermissions.js"></script>
     </body>
 </html>

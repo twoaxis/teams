@@ -27,11 +27,11 @@ header div:nth-of-type(3) button {
     font-size: 30px;
     color: #A72222;
 }
-section#user {
+section#user, section#permissions {
     width: 800px;
     margin: 40px auto;
 }
-section#user h1 {
+section#user h1, section#permissions h1 {
     font-size: 50px;
     margin-bottom: 40px;
 }
@@ -50,4 +50,11 @@ section#user div.row div.block h2 {
 }
 section#user div.row div.block p {
     font-size: 18px;
+}
+section#permissions div {
+    direction: ltr;
+    text-align: right;
+}
+section#permissions div label {
+    font-size: 20px;
 }

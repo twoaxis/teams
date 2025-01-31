@@ -46,7 +46,7 @@ class UserService {
 		});
 	}
 	async getUser(id: number) {
-		const user = await User.findOne({
+		const user = (await User.findOne({
 			attributes: [
 				"id",
 				"name",
@@ -56,14 +56,24 @@ class UserService {
 			where: {
 				id
 			},
-			include: {
-				model: User,
-				foreignKey: "reportingTo",
-				as: "manager"
-			}
-		});
+			include: [
+				{
+					model: User,
+					foreignKey: "reportingTo",
+					as: "manager"
+				},
+				{
+					model: Permission,
+					as: "permissions",
+					attributes: [ "name" ]
+				}
+			]
+		})).toJSON();
 
 		if(!user) throw new UserNotFoundException();
+		else {
+			user.permissions = user.permissions.map(permission => permission.name);
+		}
 
 		return user;
 	}
